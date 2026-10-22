@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>AR Code — 25-oktabr IIO Yubiley Statuetkasi | Augmented Reality QR Code</title>
+  <meta name="description" content="Augmented Reality QR Code tizimi: ilova o'rnatmasdan (No need for an app) 25-oktabr IIO xodimlari kuni 3D yubiley statuetkasini xonangizda va stolingizda ko'ring.">
+  <link rel="icon" type="image/png" href="./emblem_circle.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+  <script type="module" crossorigin src="./assets/main-CQAQBx33.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-CJD2Gz0l.css">
+</head>
+<body class="ar-platform-body">
+
+  <!-- Top Navigation Bar (ar-code.com inspired) -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-brand">
+        <div class="ar-badge-logo">AR</div>
+        <div class="brand-text">
+          <span class="brand-title">AR Code</span>
+          <span class="brand-tag">IIO 35 Yil Yubiley</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#hero-section" class="nav-link active">AR Code</a>
+        <a href="#studio-section" class="nav-link">3D Студия</a>
+        <a href="#upload-section" class="nav-link">3D Модель Юклаш</a>
+        <a href="#how-it-works" class="nav-link">Қандай ишлайди?</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="btn-nav-upload" class="btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          <span>3D Файл юклаш</span>
+        </button>
+        <button id="btn-nav-ar" class="btn-solid-blue">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+          <span>AR-ни очиш</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero Section (Augmented Reality QR Code - identical structure to ar-code.com) -->
+  <main id="hero-section" class="hero-section">
+    <div class="hero-container">
+      
+      <!-- Left Column: Smartphone Live AR Camera Showcase -->
+      <div class="hero-mockup-col">
+        <div class="phone-frame">
+          <div class="phone-dynamic-island"></div>
+          <div class="phone-speaker"></div>
+          
+          <div class="phone-screen" id="phone-screen">
+            <!-- Simulated Camera Desk Background -->
+            <div class="camera-bg" style="background-image: url('./desk_bg.jpg');"></div>
+            
+            <!-- Live 3D Statuette sitting right on the executive desk! -->
+            <div class="phone-3d-wrapper">
+              <model-viewer
+                id="phone-model-viewer"
+                src="./iio_35yil_statuetka.glb"
+                camera-controls
+                touch-action="pan-y"
+                auto-rotate
+                auto-rotate-delay="500"
+                rotation-per-second="24deg"
+                camera-orbit="0deg 75deg 6.2m"
+                camera-target="0m 1.35m 0m"
+                field-of-view="35deg"
+                shadow-intensity="1.6"
+                shadow-softness="0.75"
+                exposure="1.06"
+                interaction-prompt="none"
+                alt="25-oktabr IIO statuetkasi AR ko'rinishida"
+              >
+              </model-viewer>
+            </div>
+
+            <!-- AR Camera HUD Overlay -->
+            <div class="ar-hud-overlay">
+              <div class="hud-top">
+                <span class="hud-live-tag">● AR Live Faol</span>
+                <span class="hud-scale-tag">100% Ҳақиқий ўлчам</span>
+              </div>
+              <div class="hud-reticle"></div>
+              <div class="hud-bottom">
+                <div class="hud-shutter-btn" title="Суратга олиш">
+                  <div class="hud-shutter-inner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="phone-caption">📱 Смартфон камераси орқали реал хона / стол устида 3D кўриниши</p>
+      </div>
+
+      <!-- Right Column: AR Code Card & Generator Info -->
+      <div class="hero-code-col">
+        <!-- Model Switcher Bar -->
+        <div class="model-switcher-bar" id="model-switcher-bar">
+          <button class="btn-model-tab active" data-model="statuette">
+            <span class="tab-icon">🎖️</span>
+            <span>35 Йил Юбилей Статуэткаси</span>
+          </button>
+          <button class="btn-model-tab" data-model="fargona">
+            <span class="tab-icon">🏛️</span>
+            <span>Фарғона вилояти ИИБ биноси</span>
+          </button>
+        </div>
+
+        <div class="hero-badge-festive" id="hero-badge-festive">
+          <span class="dot"></span>
+          <span id="badge-festive-text">25-OKTYABR — ICHKI ISHLAR ORGANLARI XODIMLARI KUNI</span>
+        </div>
+
+        <h1 class="hero-headline">Augmented Reality QR Code</h1>
+        <p class="hero-subhead" id="hero-subhead">«Ватан осойишталиги йўлида 35 йил» юбилей 3D статуэткаси</p>
+
+        <!-- Signature AR Code Display Box -->
+        <div class="ar-code-card">
+          <div class="ar-code-canvas-box">
+            <canvas id="hero-ar-code-canvas" width="280" height="280"></canvas>
+          </div>
+
+          <div class="no-app-badge-box">
+            <h2 class="no-app-title">No need for an app.</h2>
+            <p class="no-app-desc">
+              <b>AR Code</b> — бу ҳеч қандай қўшимча илова ўрнатмасдан, тўғридан-тўғри телефон камераси орқали 3D модель ва кенгайтирилган воқелик (AR) тажрибасини яратувчи расмий QR-коддир.
+            </p>
+          </div>
+
+          <!-- Network / Domain Selector -->
+          <div class="network-mode-bar">
+            <span class="network-mode-label">📡 Уланиш тури:</span>
+            <div class="network-mode-tabs">
+              <button class="btn-net-mode active" id="btn-net-wifi" data-mode="wifi" title="Бир Wi-Fi тармоғидаги телефонлар учун">📶 Wi-Fi тармоқ</button>
+              <button class="btn-net-mode" id="btn-net-custom" data-mode="custom" title="Интернетдаги сайт ёки туннель манзили">🌐 Интернет (HTTPS)</button>
+              <button class="btn-net-mode" id="btn-net-local" data-mode="local" title="Компьютернинг ўзи учун">💻 Localhost</button>
+            </div>
+          </div>
+
+          <!-- Active Link Row with Edit & Apply -->
+          <div class="code-url-row">
+            <div class="url-input-wrap">
+              <input type="text" id="hero-ar-url-input" class="code-url-input" placeholder="https://..." value="">
+              <button id="btn-apply-custom-url" class="btn-url-apply" title="Ҳаволани тасдиқлаш ва QR-кодни янгилаш">Янгилаш</button>
+            </div>
+            <button id="btn-hero-copy-url" class="btn-copy-code" title="Ҳаволани нусхалаш">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Нусха олиш</span>
+            </button>
+          </div>
+
+          <!-- Network Alert / Tip -->
+          <div class="network-tip-banner" id="network-tip-banner">
+            <span class="tip-icon">ℹ️</span>
+            <span class="tip-text" id="network-tip-text">
+              Бошқалар ўз телефонидан сканер қилиши учун, телефон шу <b>Wi-Fi (10.212.75.11)</b> тармоғига уланган бўлиши керак.
+            </span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="code-actions-grid">
+            <button id="btn-download-ar-card" class="btn-action-gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>AR Кодни юклаб олиш (PNG)</span>
+            </button>
+
+            <button id="btn-hero-test-ar" class="btn-action-blue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+              <span>AR-ни очиш (Телефонда)</span>
+            </button>
+          </div>
+
+          <!-- QR Customizer Dropdown Bar -->
+          <div class="qr-customizer-bar">
+            <span class="customizer-label">Код услуби:</span>
+            <div class="color-options">
+              <button class="color-dot active" data-color="#0a2558" style="background: #0a2558;" title="Navy Blue"></button>
+              <button class="color-dot" data-color="#07132b" style="background: #07132b;" title="Obsidian"></button>
+              <button class="color-dot" data-color="#b8860b" style="background: #b8860b;" title="Imperial Gold"></button>
+              <button class="color-dot" data-color="#006644" style="background: #006644;" title="Emerald"></button>
+            </div>
+            <div class="badge-options">
+              <button class="btn-badge-toggle active" data-badge="ar">AR Лого</button>
+              <button class="btn-badge-toggle" data-badge="iiv">ИИВ Герби</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Interactive 3D Studio Section -->
+  <section id="studio-section" class="studio-section">
+    <div class="section-header">
+      <span class="section-tag">3D STUDIO & REALISTIC PBR</span>
+      <h2 class="section-title">Интерактив 3D Студия</h2>
+      <p class="section-subtitle">Статуэткани 360 даража айлантиринг, ёруғлик эффектларини ўзгартиринг ва асл GLB файлини юклаб олинг.</p>
+    </div>
+
+    <div class="studio-viewport-container">
+      <div id="canvas-container"></div>
+
+      <!-- Studio Floating Control Bar -->
+      <nav class="studio-controls-bar">
+        <button id="btn-export-glb" class="btn-ctrl btn-primary" title="Ҳақиқий GLB файлни юклаб олиш">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>GLB сақлаш</span>
+        </button>
+
+        <button id="btn-toggle-rotate" class="btn-ctrl" title="360 даража автоматик айлантириш">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+          <span id="text-rotate">360° Айлантириш</span>
+        </button>
+
+        <button id="btn-reset-cam" class="btn-ctrl" title="Камерани асл ҳолатига қайтариш">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Тиклаш</span>
+        </button>
+
+        <button id="btn-toggle-light" class="btn-ctrl" title="Ёруғлик эффектини ўзгартириш">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <span id="text-light">Студия ёғдуси</span>
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Upload Custom 3D Model Section (True ar-code.com feature) -->
+  <section id="upload-section" class="upload-section">
+    <div class="section-header">
+      <span class="section-tag">CUSTOM 3D AR GENERATOR</span>
+      <h2 class="section-title">Ўз 3D Моделингиз учун AR Code яратинг</h2>
+      <p class="section-subtitle">Хоҳлаган .GLB ёки .GLTF 3D модель файлини юкланг — тизим унга ҳам бир зумда расмий AR Code яратиб беради.</p>
+    </div>
+
+    <div class="upload-dropzone-card" id="dropzone-card">
+      <input type="file" id="file-input-3d" accept=".glb,.gltf" style="display: none;">
+      <div class="dropzone-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+      </div>
+      <h3>3D файлни бу ерга ташланг ёки танланг</h3>
+      <p>Қўллаб-қувватланадиган форматлар: <b>.GLB, .GLTF</b> (максимал 50 MB)</p>
+      <button class="btn-select-file" id="btn-browse-file">Компьютердан танлаш</button>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-section">
+    <div class="section-header">
+      <span class="section-tag">STEP-BY-STEP</span>
+      <h2 class="section-title">AR Code қандай ишлайди?</h2>
+      <p class="section-subtitle">Қўшимча иловаларсиз, тўғридан-тўғри смартфон камерасида 3D моделни кўриш йўли.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon-num">1</div>
+        <h3>QR-кодни сканерланг</h3>
+        <p>Телефонингизнинг одатий камерасини экрандаги ёки қоғозга чоп этилган AR Code'га қаратинг. Ҳеч қандай дастур ўрнатиш талаб қилинмайди.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-icon-num">2</div>
+        <h3>Юзани аниқланг</h3>
+        <p>Очилган саҳифада камерани стол ёки полга қаратинг. Телефон юзани бир лаҳзада сканерлайди ва 3D статуэткани пайдо қилади.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-icon-num">3</div>
+        <h3>У ёққа-бу ёққа қўйинг</h3>
+        <p>Статуэткани бир бармоқ билан стол бўйлаб хоҳлаган жойга суринг, икки бармоқ билан 360° айлантиринг ва катталаштиринг!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="ar-badge-logo small">AR</div>
+        <span>AR Code — Ўзбекистон Республикаси ИИВ 35 Йиллик Юбилей Студияси</span>
+      </div>
+      <p class="footer-copy">© 2026. 25-oktabr — Ichki ishlar organlari xodimlari kuni uchun maxsus ishlab chiqildi.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-msg">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-text">GLB файл муваффақиятли сақланди!</span>
+  </div>
+
+</body>
+</html>

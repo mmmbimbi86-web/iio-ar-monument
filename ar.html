@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>25-Oktabr — IIO & Farg'ona IIB (AR Kengaytirilgan Voqelik)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+  <style>
+    :root {
+      --navy-dark: #07132b;
+      --navy-blue: #0a2558;
+      --gold-primary: #d4a024;
+      --gold-light: #f3d47a;
+      --glass-bg: rgba(255, 255, 255, 0.92);
+      --glass-border: rgba(212, 160, 36, 0.35);
+      --shadow: 0 12px 36px rgba(7, 19, 43, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at 50% 25%, #ffffff 0%, #edf2f9 60%, #dfe7f2 100%);
+      color: var(--navy-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 0.85rem 1rem 0.6rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 160, 36, 0.2);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(212, 160, 36, 0.14);
+      border: 1px solid rgba(212, 160, 36, 0.4);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #92690a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      color: var(--navy-dark);
+      line-height: 1.25;
+      margin-bottom: 0.2rem;
+    }
+
+    p.sub {
+      font-size: 0.84rem;
+      color: #4a5568;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Model Switcher Segmented Bar */
+    .ar-model-switcher {
+      display: inline-flex;
+      background: #e2e8f0;
+      padding: 3px;
+      border-radius: 12px;
+      gap: 4px;
+      margin-top: 0.2rem;
+    }
+
+    .btn-ar-switch {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 9px;
+      background: transparent;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-ar-switch.active {
+      background: #ffffff;
+      color: var(--navy-blue);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      font-weight: 700;
+    }
+
+    .viewer-container {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      max-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f0f4f9 100%);
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
+      --poster-color: transparent;
+      outline: none;
+    }
+
+    /* Action bar with prominent AR button */
+    .ar-action-bar {
+      padding: 0.85rem 1.25rem 0.4rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ar-launch-btn-main {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, #0a2558 0%, #153e8a 100%);
+      color: #ffffff;
+      border: 1.5px solid var(--gold-light);
+      border-radius: 30px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      box-shadow: 0 10px 28px rgba(10, 37, 88, 0.3), 0 0 18px rgba(243, 212, 122, 0.35);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ar-launch-btn-main:active {
+      transform: scale(0.97);
+    }
+
+    .ar-launch-btn-main svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--gold-light);
+      stroke-width: 2.2;
+    }
+
+    .instructions-card {
+      margin: 0.6rem 1rem 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .instructions-card h3 {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.86rem;
+      color: #2d3748;
+      line-height: 1.4;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      background: var(--gold-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-nav {
+      padding: 0.5rem 1.25rem 1.5rem;
+      text-align: center;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.25rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(10, 37, 88, 0.2);
+      border-radius: 14px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--navy-dark);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-back:hover {
+      background: #ffffff;
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+</head>
+<body>
+  <header>
+    <div class="badge">
+      <span>●</span> 25-oktabr — Kasb bayrami
+    </div>
+    <h1 id="ar-title">Ички ишлар органлари ходимлари куни</h1>
+    <p class="sub" id="ar-sub">«Ватан осойишталиги йўлида 35 йил» 3D AR Статуэткаси</p>
+
+    <!-- Switcher between Statuette and Farg'ona Building -->
+    <div class="ar-model-switcher">
+      <button class="btn-ar-switch active" id="btn-switch-statuette">🎖️ Юбилей статуэткаси</button>
+      <button class="btn-ar-switch" id="btn-switch-fargona">🏛️ Фарғона ИИБ биноси</button>
+    </div>
+  </header>
+
+  <main class="viewer-container">
+    <model-viewer
+      id="ar-viewer"
+      src="./iio_35yil_statuetka.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      touch-action="pan-y"
+      auto-rotate
+      auto-rotate-delay="1000"
+      rotation-per-second="25deg"
+      camera-orbit="0deg 75deg 6.2m"
+      camera-target="0m 1.35m 0m"
+      field-of-view="35deg"
+      bounds="tight"
+      shadow-intensity="1.5"
+      shadow-softness="0.75"
+      exposure="1.06"
+      ar-scale="auto"
+      ar-placement="floor"
+      interaction-prompt="auto"
+      alt="25-oktabr IIO 35 yillik yubiley statuetkasi"
+    >
+      <button slot="ar-button" style="display: none;" id="btn-place-ar"></button>
+    </model-viewer>
+  </main>
+
+  <div class="ar-action-bar">
+    <button class="ar-launch-btn-main" id="btn-place-ar-action">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+      </svg>
+      <span>📱 Хонага / Столга жойлаштириш (AR)</span>
+    </button>
+  </div>
+
+  <section class="instructions-card">
+    <h3>✨ AR да қандай ишлатилади?</h3>
+    <div class="step-list">
+      <div class="step-item">
+        <span class="step-num">1</span>
+        <span><b>«Хонага / Столга жойлаштириш (AR)»</b> тугмасини босинг.</span>
+      </div>
+      <div class="step-item">
+        <span class="step-num">2</span>
+        <span>Камера очилганда, телефонни стол ёки полга қаратиб, секин ҳаракатлантиринг (юзани сканер қилади).</span>
+      </div>
+      <div class="step-item">
+        <span class="step-num">3</span>
+        <span><b>У ёққа-бу ёққа қўйиш:</b> Объект столда пайдо бўлгач, уни бармоқ билан хоҳлаган жойга суринг, икки бармоқ билан айлантиринг ва катталаштиринг!</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-nav">
+    <a href="/" class="btn-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <span>3D Веб-Студияга қайтиш</span>
+    </a>
+  </footer>
+
+  <script>
+    const modelViewer = document.getElementById('ar-viewer');
+    const btnPlaceAR = document.getElementById('btn-place-ar');
+    const btnPlaceARAction = document.getElementById('btn-place-ar-action');
+    const arTitle = document.getElementById('ar-title');
+    const arSub = document.getElementById('ar-sub');
+    const btnSwitchStatuette = document.getElementById('btn-switch-statuette');
+    const btnSwitchFargona = document.getElementById('btn-switch-fargona');
+
+    let currentModel = 'statuette';
+
+    function updateModel(modelName) {
+      currentModel = modelName;
+      if (!modelViewer) return;
+
+      if (modelName === 'fargona') {
+        modelViewer.src = './fargona_iib_binosi.glb';
+        modelViewer.cameraOrbit = '0deg 75deg 9m';
+        modelViewer.cameraTarget = '0m 1.6m 0m';
+        if (arTitle) arTitle.textContent = "Фарғона вилояти ИИБ биноси";
+        if (arSub) arSub.textContent = "«Ватан осойишталиги ва халқ тинчлиги йўлида» 3D AR Архитектураси";
+
+        if (btnSwitchFargona) btnSwitchFargona.classList.add('active');
+        if (btnSwitchStatuette) btnSwitchStatuette.classList.remove('active');
+      } else {
+        modelViewer.src = './iio_35yil_statuetka.glb';
+        modelViewer.cameraOrbit = '0deg 75deg 6.2m';
+        modelViewer.cameraTarget = '0m 1.35m 0m';
+        if (arTitle) arTitle.textContent = "Ички ишлар органлари ходимлари куни";
+        if (arSub) arSub.textContent = "«Ватан осойишталиги йўлида 35 йил» 3D AR Статуэткаси";
+
+        if (btnSwitchStatuette) btnSwitchStatuette.classList.add('active');
+        if (btnSwitchFargona) btnSwitchFargona.classList.remove('active');
+      }
+    }
+
+    // Check URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('model') === 'fargona') {
+      updateModel('fargona');
+    }
+
+    if (btnSwitchStatuette) {
+      btnSwitchStatuette.addEventListener('click', () => updateModel('statuette'));
+    }
+
+    if (btnSwitchFargona) {
+      btnSwitchFargona.addEventListener('click', () => updateModel('fargona'));
+    }
+
+    // Progress display
+    if (modelViewer && arSub) {
+      modelViewer.addEventListener('progress', (e) => {
+        const percent = Math.round(e.detail.totalProgress * 100);
+        if (percent < 100) {
+          arSub.textContent = `⏳ 3D Модель юкланмоқда: ${percent}%...`;
+        } else {
+          arSub.textContent = currentModel === 'fargona' 
+            ? "«Ватан осойишталиги ва халқ тинчлиги йўлида» 3D AR Архитектураси"
+            : "«Ватан осойишталиги йўлида 35 йил» 3D AR Статуэткаси";
+        }
+      });
+    }
+
+    function triggerAR() {
+      if (modelViewer && modelViewer.canActivateAR) {
+        modelViewer.activateAR();
+      } else {
+        const glbFileName = currentModel === 'fargona' ? 'fargona_iib_binosi.glb' : 'iio_35yil_statuetka.glb';
+        const glbUrl = new URL(glbFileName, window.location.href).href;
+        const sceneViewerUrl = `intent://arvr.google.com/scene-viewer/1.0?file=${encodeURIComponent(glbUrl)}&mode=ar_only&resizable=true#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end;`;
+        window.location.href = sceneViewerUrl;
+      }
+    }
+
+    if (btnPlaceAR) btnPlaceAR.addEventListener('click', triggerAR);
+    if (btnPlaceARAction) btnPlaceARAction.addEventListener('click', triggerAR);
+  </script>
+</body>
+</html>
